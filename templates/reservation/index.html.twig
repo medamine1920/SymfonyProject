@@ -30,4 +30,21 @@
     </table>
 
     <a href="{{ path('app_reservation_new') }}">Create new</a>
+
+
+    {% block javascripts %}
+
+            <script src="{{ asset('assets/plugins/dataTables/jquery.dataTables.js') }}"></script>
+            <script src="{{ asset('assets/plugins/dataTables/dataTables.bootstrap.js') }}"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#dataTables-example').dataTable();
+                });
+            </script>
+    {% endblock %}
+
+    {% block stylesheets %}
+        <link href="{{ asset('assets/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" />
+    {% endblock %}
 {% endblock %}
+

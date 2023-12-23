@@ -23,8 +23,8 @@ class User
     #[ORM\Column(length: 50)]
     private ?string $password = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $role = [];
+    #[ORM\Column(length: 50)]
+    private ?string $role = null;
 
     public function getId(): ?int
     {
@@ -67,12 +67,12 @@ class User
         return $this;
     }
 
-    public function getRole(): array
+    public function getRole(): ?string
     {
         return $this->role;
     }
 
-    public function setRole(array $role): static
+    public function setRole(string $role): static
     {
         $this->role = $role;
 

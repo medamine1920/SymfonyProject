@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Service;
-use App\Form\Service1Type;
+use App\Form\ServiceType;
 use App\Repository\ServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class ServiceController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $service = new Service();
-        $form = $this->createForm(Service1Type::class, $service);
+        $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class ServiceController extends AbstractController
     #[Route('/{id}/edit', name: 'app_service_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(Service1Type::class, $service);
+        $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
